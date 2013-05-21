@@ -1,0 +1,25 @@
+import sys
+import json
+
+def hw():
+    print 'Hello, world!'
+
+def lines(fp):
+    return len(fp.readlines())
+
+def main():
+	sent_file = open(sys.argv[1],'r')
+	tweet_file = open(sys.argv[2])
+	hw()
+	lines(sent_file)
+	sent_dict = {}
+	for line in sent_file:
+            print str(line)
+	    k, v = line.strip().split('\t')
+	    sent_dict[k.strip()] = v.strip()
+	for key in sent_dict.keys():
+		print sent_dict[key]
+#    json.loads(str(tweet_file.readlines()))
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,43 @@
+import MapReduce
+import sys
+
+"""
+Word Count Example in the Simple Python MapReduce Framework
+"""
+
+mr = MapReduce.MapReduce()
+
+# =============================
+# Do not modify above this line
+
+def mapper(record):
+	key = record[0]
+	if key == "a":
+		for k in [0:4]
+			mr.emit_intermediate([record[1],k],record)	
+	else:
+		for i in [0:4]
+			mr.emit_intermediate([i,record[2]],record)		
+
+def reducer(key, list_of_values):
+	a = []
+	b = []
+	for v in list_of_values:
+		if v[0] = "a":
+			a.append(v)
+		else
+			b.append(v)
+	sorted(a, key=itemgetter(2))
+	sorted(b, key=itemgetter(1))
+				
+	sum=0;				
+	for j in [0:4]:
+		sum += a[j][3]*b[j][3] 
+	
+	key.append(sum)
+	mr.emit((key))	
+# Do not modify below this line
+# =============================
+if __name__ == '__main__':
+  inputdata = open(sys.argv[1])
+  mr.execute(inputdata, mapper, reducer)
